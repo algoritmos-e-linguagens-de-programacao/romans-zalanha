@@ -1,5 +1,5 @@
 def roman_to_int():
-    roman = input("Insira seu número em algarismos romanos: ")
+    roman = "mmmcmxcix"
 
     nums = {'M': 1000,
             'D': 500,
@@ -26,17 +26,19 @@ def roman_to_int():
 print(roman_to_int())
 
 
-def int_to_roman(input):
-    if not isinstance(input, type(1)):
-        raise TypeError, "expected integer, got %s" % type(input)
-    if not 0 < input < 4000:
-        raise ValueError, "Argument must be between 1 and 3999"
-        ints = (1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1)
-        nums = ('M', 'CM', 'D', 'CD','C', 'XC','L','XL','X','IX','V','IV','I')
-        result = []
+def int_to_roman():
+    Num = 3999
+    Num2 = Num // 1000
+    Num3 = (Num % 1000) // 100
+    Num4 = (Num % 100) // 10
+    Num5 = Num % 10
 
-for i in range(len(ints)):
-    count = int(input / ints[i])
-    result.append(nums[i] * count)
-    input -= ints[i] * count
-return ''.join(result)
+    Milhar = ["", "m", "mm", "mmm"]
+    Centena = ["", "c", "cc", "ccc", "cd", "d", "dc", "dcc", "dccc", "cm"]
+    Dezena = ["", "x", "xx", "xxx", "xl", "l", "lx", "lxx", "lxxx", "xc"]
+    Unidade = ["", "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]
+
+    romano_id = Milhar[Num2] + Centena[Num3] + Dezena[Num4] + Unidade[Num5]
+
+    return romano_id
+print(int_to_roman())
